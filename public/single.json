@@ -1,0 +1,45 @@
+[
+    {
+        "id": 1,
+        "name": "Single Room with dark mode",
+        "rent": "8000",
+        "description": "Bedroom in contemporary style",
+        "img": "https://i.ibb.co/PFzDZR5/sr01.png"
+    },
+    {
+        "id": 2,
+        "name": "Single Room with wardrobe",
+        "rent": "9000",
+        "description": "Bedrooms With Attached Wardrobes",
+        "img": "https://i.ibb.co/t4snCMj/sr02.png"
+    },
+    {
+        "id": 3,
+        "name": "Single Room with table",
+        "rent": "7000",
+        "description": "Bedrooms With study table",
+        "img": "https://i.ibb.co/0qd9hLg/sr03.png"
+    },
+    {
+        "id": 4,
+        "name": "Single Room with decoration",
+        "rent": "6500",
+        "description": "Bedrooms With nice decoration for looking good scene",
+        "img": "https://i.ibb.co/kcMYgJw/sr04.png"
+    },
+    {
+        "id": 5,
+        "name": "Single Room with Pillow",
+        "rent": "7500",
+        "description": "Bedrooms With Pillow for Comfortable",
+        "img": "https://i.ibb.co/dBst84K/sr05.png"
+    },
+    {
+        "id": 6,
+        "name": "Single Room with tools",
+        "rent": "8500",
+        "description": "Bedrooms With necessary tools",
+        "img": "https://i.ibb.co/b2RVJzp/sr06.png"
+    }
+
+]
