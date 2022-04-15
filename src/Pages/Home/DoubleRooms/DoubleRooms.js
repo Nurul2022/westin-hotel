@@ -19,7 +19,7 @@ const doubleRooms = [
 
 const DoubleRooms = () => {
     return (
-        <div className='constainer'>
+        <div id='doubleroom' className='constainer'>
             <h1 className='text-center mt-5 text-primary'>Double Rooms</h1>
             <div className="row">
                 {
