@@ -1,13 +1,30 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
+import { useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
+import auth from '../../../firebase.init'
+import SocialLogin from '../SocialLogin/SocialLogin';
 
 const Register = () => {
+    const [agree, setAgree] = useState(false);
+
+
+    const [
+        createUserWithEmailAndPassword,
+        user,
+        loading,
+        error,
+    ] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
+    const [updateProfile, updating, updateError] = useUpdateProfile(auth);
 
     const navigate = useNavigate();
 
     const navigateLogin = () => {
         navigate('/login')
+    }
+
+    if (user) {
+        navigate('/home');
     }
 
     const handleRegister = event => {
@@ -16,6 +33,11 @@ const Register = () => {
         const email = event.target.email.value;
         const password = event.target.password.value;
 
+        // const agree = event.target.terms.checked;
+
+        if (agree) {
+            createUserWithEmailAndPassword(email, password);
+        }
 
     }
 
@@ -35,11 +57,23 @@ const Register = () => {
                     <Form.Control type="password" name='password' id='' placeholder="Password" required />
                 </Form.Group>
 
-                <Button variant="primary" type="submit" value="Register">Sign Up</Button>
+                <Form.Group className="mb-3" controlId="formBasicCheckbox">
+                    <Form.Check className={agree ? 'text-primary' : 'text-danger'} onClick={() => setAgree(!agree)}
+                        type="checkbox" name='terms' id='terms' label='Accept Terms and Conditions' />
+                </Form.Group>
+
+                <Button disabled={!agree} variant="primary w-50 mx-auto d-block mb-2 p-2" type="submit" value="Register">Sign Up</Button>
             </Form>
-            <p>Already have an account? <Link to='/login' className='text-danger text-decoration-none' onClick={navigateLogin} >Please Sign In!</Link></p>
+            <p>Already have an account? <Link to='/login'
+                className='text-primary text-decoration-none'
+                onClick={navigateLogin} >Please Sign In!</Link></p>
+            <SocialLogin></SocialLogin>
         </div>
     );
 };
 
 export default Register;
+
+// className={agree ? 'text-primary' : 'text-danger'}
+// <label className={agree ? 'text-primary' : 'text-danger'} htmlFor="terms">Accept Terms and Conditions</label>
+// <label className={agree ? 'ps-2': 'ps-2 text-danger'} htmlFor="terms">Accept Genius Car Terms and Conditions</label>

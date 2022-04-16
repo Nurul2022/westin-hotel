@@ -8,22 +8,23 @@ const Banner = () => {
     const [index, setIndex] = useState(0);
 
     const handleSelect = (selectedIndex, e) => {
-      setIndex(selectedIndex);
+        setIndex(selectedIndex);
     };
 
     return (
-        <Carousel activeIndex={index} onSelect={handleSelect}>
+        <Carousel activeIndex={index} onSelect={handleSelect} >
             <Carousel.Item>
                 <img
                     className="d-block w-100"
                     src={slider1}
                     alt="First slide"
                 />
-                <Carousel.Caption>
-                    <h3>First slide label</h3>
+                <Carousel.Caption className="text-dark text-start ">
+                    <h3 >First slide label</h3>
                     <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
                 </Carousel.Caption>
             </Carousel.Item>
+
             <Carousel.Item>
                 <img
                     className="d-block w-100"
@@ -36,6 +37,7 @@ const Banner = () => {
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                 </Carousel.Caption>
             </Carousel.Item>
+
             <Carousel.Item>
                 <img
                     className="d-block w-100"
