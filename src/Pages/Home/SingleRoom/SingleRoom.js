@@ -1,25 +1,25 @@
 import React, { useEffect, useState } from 'react';
 import Service from '../Service/Service';
-import './Services.css'
+import './SingleRoom.css'
 
 
-const Services = () => {
+const SingleRoom = () => {
 
-    const [services, setServices] = useState([]);
+    const [SingleRoom, setSingleRoom] = useState([]);
 
     useEffect(() => {
         fetch('single.json')
             .then(res => res.json())
-            .then(data => setServices(data))
+            .then(data => setSingleRoom(data))
     }, [])
 
     return (
-        <div id='services' className='container'>
-            <div className="row">
-                <h1 className='services-title'>Single Rooms</h1>
-                <div className='services-container'>
+        <div id='SingleRoom' className='container'>
+            <div className="row mt-5">
+                <h1 className='SingleRoom-title'>Single Rooms</h1>
+                <div className='SingleRoom-container'>
                     {
-                        services.map(service => <Service
+                        SingleRoom.map(service => <Service
                             key={service.id}
                             service={service}
 
@@ -32,6 +32,6 @@ const Services = () => {
     );
 };
 
-export default Services;
+export default SingleRoom;
 
 // Vanilla CSS used 
